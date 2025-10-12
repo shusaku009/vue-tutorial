@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { reactive, ref } from "vue";
+
+const counter = reactive({ count: 0 });
+const message = ref("Hello World!");
 </script>
 
 <template>
-  <h1>Make me synamic!</h1>
+  <h1>{{ message }}</h1>
+  <p>Count is: {{ counter.count }}</p>
 </template>

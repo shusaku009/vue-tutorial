@@ -6,6 +6,7 @@ const count = ref(0);
 const message = ref("Hello World!");
 const titleClass = ref("title");
 const text = ref("");
+const modeltext = ref("");
 
 function incrementCount() {
   count.value++;
@@ -25,7 +26,9 @@ function onInput(e: Event) {
   <button @click="incrementCount()">countUp</button>
   {{ count }}
   <div><input :value="text" @input="onInput" placeholder="Type here" /></div>
-  {{ text }}
+  <p>{{ text }}</p>
+  <div><input type="text" v-model="modeltext" placeholder="Type here" /></div>
+  <p>{{ modeltext }}</p>
 </template>
 
 <style>

@@ -3,6 +3,12 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "types": ["vite/client"],
+    "plugins": [
+      {
+        "name": "@vue/typescript-plugin",
+        "include": ["./src/**/*.vue"]
+      }
+    ],
 
     /* Linting */
     "strict": true,

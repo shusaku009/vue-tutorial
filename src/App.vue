@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 
+let id = 0;
+
 const counter = reactive({ count: 0 });
 const count = ref(0);
 const message = ref("Hello World!");
@@ -8,6 +10,12 @@ const titleClass = ref("title");
 const text = ref("");
 const modeltext = ref("");
 const awesome = ref(true);
+const newTodo = ref("");
+const todos = ref([
+  { id: id++, text: "Learn HTML" },
+  { id: id++, text: "Learn JavaScript" },
+  { id: id++, text: "Learn Vue" },
+]);
 
 function incrementCount() {
   count.value++;
@@ -21,6 +29,15 @@ function onInput(e: Event) {
 
 function toggleAwesome(): void {
   awesome.value = !awesome.value;
+}
+
+function addTodo(): void {
+  todos.value.push({ id: id++, text: newTodo.value });
+  newTodo.value = "";
+}
+
+function removeTodo(todo): void {
+  todos.value = todos.value.filter((t) => t !== todo);
 }
 </script>
 
@@ -38,6 +55,16 @@ function toggleAwesome(): void {
   <h1>{{ awesome ? "Awesome" : "Not Awesome" }}</h1>
   <h1 v-if="awesome">Vue is awesome!</h1>
   <h1 v-else>Vue is not awesome!</h1>
+  <form @submit.prevent="addTodo">
+    <input v-model="newTodo" required placeholder="new todo" />
+    <button>Add Todo</button>
+  </form>
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.text }}
+      <button @click="removeTodo(todo)">X</button>
+    </li>
+  </ul>
 </template>
 
 <style>

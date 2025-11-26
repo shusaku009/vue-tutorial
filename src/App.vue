@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref, computed, onMounted } from "vue";
+import Watcher from "./components/watcher.vue";
 
 let id = 0;
 
@@ -81,6 +82,7 @@ onMounted(() => {
     {{ hideCompleted ? "Show Completed" : "Hide Completed" }}
   </button>
   <p ref="pElementRef">Hello World</p>
+  <Watcher />
 </template>
 
 <style>

@@ -26,6 +26,7 @@ const filteredTodos = computed(() => {
 });
 const pElementRef = ref(null);
 const greeting = ref("Hello from parent");
+const test = ref("test");
 
 function incrementCount() {
   count.value++;
@@ -85,7 +86,7 @@ onMounted(() => {
   </button>
   <p ref="pElementRef">Hello World</p>
   <Watcher />
-  <ChildComp :msg="greeting" />
+  <ChildComp :msg="greeting" :test="test" />
 </template>
 
 <style>

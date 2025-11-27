@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref, computed, onMounted } from "vue";
 import Watcher from "./components/watcher.vue";
+import ChildComp from "./components/ChildComp.vue";
 
 let id = 0;
 
@@ -83,6 +84,7 @@ onMounted(() => {
   </button>
   <p ref="pElementRef">Hello World</p>
   <Watcher />
+  <ChildComp />
 </template>
 
 <style>

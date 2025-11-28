@@ -2,6 +2,7 @@
 import { reactive, ref, computed, onMounted } from "vue";
 import Watcher from "./components/watcher.vue";
 import ChildComp from "./components/ChildComp.vue";
+import SlotComp from "./components/SlotComp.vue";
 
 let id = 0;
 
@@ -92,6 +93,7 @@ onMounted(() => {
     :test="test"
     @response="(msg) => (childMsg = msg)"
   />
+  <SlotComp>This is some slot content!</SlotComp>
 </template>
 
 <style>

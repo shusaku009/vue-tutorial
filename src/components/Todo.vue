@@ -22,3 +22,18 @@
     </ul>
   </div>
 </template>
+
+<style scoped>
+.todo-list-container {
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  padding: 2% 10%;
+  margin: 5% auto;
+  width: 50%;
+}
+.todo-list-item {
+  list-style: none;
+  padding: 5px;
+  margin: 5px;
+}
+</style>

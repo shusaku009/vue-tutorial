@@ -1,25 +1,49 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+let id = 1;
+
+const newTodo = ref("");
+const todos = ref([]);
+
+function addTodo() {
+  todos.value.push({ id: id++, text: newTodo.value, done: false });
+  console.log(todos.value);
+  newTodo.value = "";
+}
+</script>
 
 <template>
   <div>
     <h1>Todo</h1>
   </div>
-  <div>
+  <div class="todo-list-container">
     <h2>Todo List</h2>
-    <h3>InComplete</h3>
-    <ul>
-      <li>Todo 1</li>
-      <li>Todo 2</li>
-      <li>Todo 3</li>
-    </ul>
-  </div>
-  <div>
-    <h3>Complete</h3>
-    <ul>
-      <li>Todo 1</li>
-      <li>Todo 2</li>
-      <li>Todo 3</li>
-    </ul>
+    <div>
+      <h3>New Todo</h3>
+      <form @submit.prevent="addTodo">
+        <input v-model="newTodo" required placeholder="new todo" />
+        <button>追加</button>
+      </form>
+    </div>
+    <div class="todo-list">
+      <h3>InComplete</h3>
+      <ul class="todo-list-item">
+        <li>
+          <input type="checkbox" />
+          <span></span>
+          <button>X</button>
+        </li>
+      </ul>
+    </div>
+    <div class="todo-list">
+      <h3>Complete</h3>
+      <ul class="todo-list-item">
+        <li>Todo 1</li>
+        <li>Todo 2</li>
+        <li>Todo 3</li>
+      </ul>
+    </div>
   </div>
 </template>
 

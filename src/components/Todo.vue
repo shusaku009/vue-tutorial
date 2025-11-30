@@ -29,9 +29,9 @@ function addTodo() {
     <div class="todo-list">
       <h3>InComplete</h3>
       <ul class="todo-list-item">
-        <li>
+        <li v-for="todo in todos" key="todo.id">
           <input type="checkbox" />
-          <span></span>
+          <span>{{ todo.text }}</span>
           <button>X</button>
         </li>
       </ul>

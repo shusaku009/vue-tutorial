@@ -8,7 +8,6 @@ const todos = ref([]);
 
 function addTodo() {
   todos.value.push({ id: id++, text: newTodo.value, done: false });
-  console.log(todos.value);
   newTodo.value = "";
 }
 </script>
